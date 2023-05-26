@@ -9,9 +9,12 @@
 
 class Ant_Nest
 {
+private:
 	Ants *Queen;
 	Ants *Workers;
 	Ants *Fighters;
+public:
+	Ant_Nest(int, int);
 };
 
 

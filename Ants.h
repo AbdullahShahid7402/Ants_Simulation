@@ -15,7 +15,7 @@ private:
 	Texture texture;
 	Sprite sprite;
 public:
-	Ants(int x, int y);
+	Ants(int, int);
 };
 
 
