@@ -1,0 +1,3 @@
+C:/Users/wtcom/CLionProjects/Ants Simulation/cmake-build-debug/CMakeFiles/Ants_Simulation.dir
+C:/Users/wtcom/CLionProjects/Ants Simulation/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/wtcom/CLionProjects/Ants Simulation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
