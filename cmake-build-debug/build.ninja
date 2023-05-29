@@ -67,6 +67,7 @@ build CMakeFiles/Ants_Simulation.dir/main.cpp.obj: CXX_COMPILER__Ants_Simulation
 
 build Ants_Simulation.exe: CXX_EXECUTABLE_LINKER__Ants_Simulation_Debug CMakeFiles/Ants_Simulation.dir/main.cpp.obj | C$:/Users/wtcom/CLionProjects/Game$ Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-graphics-s-d.a C$:/Users/wtcom/CLionProjects/Game$ Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-window-s-d.a C$:/Users/wtcom/CLionProjects/Game$ Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-system-s-d.a C$:/Users/wtcom/CLionProjects/Game$ Testing/cmake-build-debug/_deps/sfml-src/lib/libfreetype.a
   FLAGS = -g
+  LINK_FLAGS = -Wl,--stack,50000000
   LINK_LIBRARIES = "C:/Users/wtcom/CLionProjects/Game Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-graphics-s-d.a"  "C:/Users/wtcom/CLionProjects/Game Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-window-s-d.a"  "C:/Users/wtcom/CLionProjects/Game Testing/cmake-build-debug/_deps/sfml-src/lib/libsfml-system-s-d.a"  -lwinmm  -lgdi32  -lOpenGL32  "C:/Users/wtcom/CLionProjects/Game Testing/cmake-build-debug/_deps/sfml-src/lib/libfreetype.a"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Ants_Simulation.dir
   POST_BUILD = cd .

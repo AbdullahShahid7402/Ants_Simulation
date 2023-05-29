@@ -2,6 +2,8 @@
 // Created by Abdullah Shahid on 5/27/2023.
 //
 #include "Ants.cpp"
+#include <pthread.h>
+#include <ctime>
 
 #ifndef ANT_NEST_H
 #define ANT_NEST_H
@@ -10,11 +12,17 @@
 class Ant_Nest
 {
 private:
-	Ants *Queen;
-	Ants *Workers;
-	Ants *Fighters;
+	Texture texture;
 public:
-	Ant_Nest(int, int);
+	Sprite sprite;
+	Ants **Queen;
+	Ants **Workers;
+	Ants **Fighters;
+	int WorkersCap, FightersCap;
+
+	Ant_Nest(int, int, RenderWindow *, bool *);
+	void Update(RenderWindow *);
+	~Ant_Nest();
 };
 
 

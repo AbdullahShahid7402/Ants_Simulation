@@ -23,6 +23,9 @@ set(SFML_STATIC_LIBRARIES TRUE)
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window REQUIRED)
 
+# Increase Stack Size
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--stack,50000000")
+
 # Add the executable
 add_executable(Ants_Simulation main.cpp)
 
