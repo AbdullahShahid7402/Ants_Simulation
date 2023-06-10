@@ -1,7 +1,6 @@
 //
 // Created by Abdullah Shahid on 5/27/2023.
 //
-
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
@@ -17,10 +16,15 @@ class Ants
 private:
 	Texture texture;
 public:
+	Vector2f NestPosition;
 	Sprite sprite;
-	int aggresive,caution,lazy,scared;
+	float stamina;
+	int aggresive, caution, lazy, scared;
 	Ants(int, int, float);
-	void Update();
+	void search(Ants *obj[], int size, bool);
+	void goHome(Ants *obj[], int size, bool);
+	void Update(Ants *obj[], int size);
+	void avoidCollision(Ants *obj[], int size);
 	~Ants();
 };
 

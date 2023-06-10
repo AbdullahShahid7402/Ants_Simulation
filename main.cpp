@@ -5,14 +5,13 @@ using namespace sf;
 int main()
 {
 	srand(time(0));
-
 	const int width = 1280;
 	const int height = 720;
 
-	RenderWindow window(sf::VideoMode(width, height), "SFML Window");
-	Clock clock;
+	RenderWindow window(VideoMode(width, height), "SFML Window");
 
-	int NestCap = 2;
+	const int NestCap = 5;
+	pthread_t *threadNo = new pthread_t[NestCap];
 	Ant_Nest **Nest = new Ant_Nest *[NestCap]();
 
 	for (int a = 0; a < NestCap; a++)
@@ -20,14 +19,9 @@ int main()
 		Nest[a] = nullptr;
 	}
 
-	bool running = false;
+	bool running = true;
 
-	while (!running)
-	{
-		running = window.isOpen();
-	}
-
-	while (running)
+	while (running && window.isOpen())
 	{
 		for (int a = 0; a < NestCap; a++)
 		{
@@ -39,11 +33,10 @@ int main()
 				y %= height - (64 * 2);
 				x += 64;
 				y += 64;
-				Nest[a] = new Ant_Nest(x, y, &window, &running);
-				break;
+				Nest[a] = new Ant_Nest(x, y, &window, &running, &threadNo[a]);
+				usleep((a * 100 * 1000));
 			}
 		}
-		Time elapsed = clock.getElapsedTime();
 		int frameLimit = 60;
 		Event event;
 		while (window.pollEvent(event))
@@ -51,7 +44,6 @@ int main()
 			if (event.type == Event::Closed)
 			{
 				running = false;
-				sleep(seconds(5));
 				window.close();
 				break;
 			}
@@ -61,8 +53,9 @@ int main()
 
 		for (int a = 0; a < NestCap; a++)
 		{
+
 			if (Nest[a] != nullptr)
-				Nest[a][0].Update(&window);
+				Nest[a][0].Update(&window, Nest, NestCap);
 		}
 
 		// Draw SFML objects here
@@ -74,7 +67,9 @@ int main()
 	for (int a = 0; a < NestCap; a++)
 	{
 		delete Nest[a];
+		pthread_join(threadNo[a], NULL);
 	}
 	delete[] Nest;
-	pthread_exit(0);
+
+	return 0;
 }

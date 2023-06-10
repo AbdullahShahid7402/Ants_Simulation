@@ -17,7 +17,7 @@ if(NOT SFML_POPULATED)
 endif()
 
 # Add SFML paths
-set(SFML_DIR "C:/Users/wtcom/CLionProjects/Game Testing/cmake-build-debug/_deps/sfml-src/lib/cmake/SFML")
+set(SFML_DIR "C:/Users/wtcom/CLionProjects/Ants Simulation/cmake-build-debug/_deps/sfml-src/lib/cmake/SFML")
 set(SFML_STATIC_LIBRARIES TRUE)
 
 # Find SFML

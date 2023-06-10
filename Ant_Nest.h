@@ -3,6 +3,7 @@
 //
 #include "Ants.cpp"
 #include <pthread.h>
+#include <unistd.h>
 #include <ctime>
 
 #ifndef ANT_NEST_H
@@ -20,8 +21,8 @@ public:
 	Ants **Fighters;
 	int WorkersCap, FightersCap;
 
-	Ant_Nest(int, int, RenderWindow *, bool *);
-	void Update(RenderWindow *);
+	Ant_Nest(int, int, RenderWindow *, bool *, pthread_t *);
+	void Update(RenderWindow *, Ant_Nest *obj[], int);
 	~Ant_Nest();
 };
 
